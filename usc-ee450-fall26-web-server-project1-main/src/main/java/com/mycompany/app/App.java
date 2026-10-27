@@ -9,23 +9,21 @@ import java.net.* ;
 import java.util.* ;
 
 public class App {
-    public static void main(String[] args) {
-        // Test code, delete after you know your code runs for the first time.
-        System.out.println("Hello Remote World!");
-
+    public static void main(String[] args) throws Exception {
         // Set the port number.
 	    int port = 6789;
 
         // Establish the listen socket. Hint, look at documentation for Socket
         // https://docs.oracle.com/javase/7/docs/api/java/net/Socket.html#Socket(java.net.InetAddress,%20int)
         // Add your code below...
+        ServerSocket serverSocket = new ServerSocket(port);
+        System.out.println("Server is listening on port " + port);
 
-        /* Uncomment code below when starting assignment...
         // Process HTTP service requests in an infinite loop.
         while (true) {
             // Listen for a TCP connection request.
-            // Add your code below...
-       
+            Socket socket = serverSocket.accept();
+
             // Construct an object to process the HTTP request message.
             HttpRequest request = new HttpRequest(socket);
 
@@ -35,6 +33,5 @@ public class App {
             // Start the thread.
             thread.start();
         }
-        */
     }
 }
